@@ -1,4 +1,4 @@
-from flask-config import create_app
+from flask_config import create_app
 
 app = create_app()
 

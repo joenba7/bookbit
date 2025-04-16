@@ -2,7 +2,7 @@ bookbit/
 ├── books/                          # 📚 All uploaded EPUB files will be stored here
 │   └── (user uploads go here)
 │
-├── flask-config/                   # 🔥 All Flask-specific logic and route handling
+├── flask_config/                   # 🔥 All Flask-specific logic and route handling
 │   ├── __init__.py                 # Flask app factory: creates and configures the Flask app
 │   ├── views/
 │   │   ├── index.py                # Route: renders the main book list and search

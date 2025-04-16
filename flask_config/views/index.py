@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
-from flask-config.logic.auth import login_required
-from flask-config.logic.fileops import list_books
+from flask_config.logic.auth import login_required
+from flask_config.logic.fileops import list_books
 import configparser
 
 bp_index = Blueprint("index", __name__)
