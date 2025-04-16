@@ -1,0 +1,2 @@
+DEFAULT_PORT = 5000
+APP_NAME = "Bookbit"

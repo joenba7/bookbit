@@ -1,0 +1,24 @@
+{% include 'header.html' %}
+<form method="get">
+  <input type="text" name="q" placeholder="Search..." value="{{ search_query }}">
+  <button type="submit">🔍</button>
+</form>
+<table>
+  <thead>
+    <tr>
+      <th>Filename</th>
+      {% if show_size %}<th>Size</th>{% endif %}
+      {% if show_modified %}<th>Modified</th>{% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for file in files %}
+    <tr>
+      <td><a href="/books/{{ file.name }}">{{ file.name }}</a></td>
+      {% if show_size %}<td>{{ '%.2f'|format(file.size/1024/1024) }} MB</td>{% endif %}
+      {% if show_modified %}<td>{{ file.modified.strftime('%Y-%m-%d %H:%M') }}</td>{% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% include 'footer.html' %}
