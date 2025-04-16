@@ -1,14 +1,34 @@
 {% include 'header.html' %}
+
 <form method="get">
   <input type="text" name="q" placeholder="Search..." value="{{ search_query }}">
-  <button type="submit">🔍</button>
 </form>
+
 <table>
   <thead>
     <tr>
-      <th>Filename</th>
-      {% if show_size %}<th>Size</th>{% endif %}
-      {% if show_modified %}<th>Modified</th>{% endif %}
+      <th>
+        <a href="?sort_by=name&sort_order={{ 'desc' if sort_by == 'name' and sort_order == 'asc' else 'asc' }}">
+          Filename
+          {% if sort_by == 'name' %}{{ '↑' if sort_order == 'asc' else '↓' }}{% endif %}
+        </a>
+      </th>
+      {% if show_size %}
+      <th>
+        <a href="?sort_by=size&sort_order={{ 'desc' if sort_by == 'size' and sort_order == 'asc' else 'asc' }}">
+          Size
+          {% if sort_by == 'size' %}{{ '↑' if sort_order == 'asc' else '↓' }}{% endif %}
+        </a>
+      </th>
+      {% endif %}
+      {% if show_modified %}
+      <th>
+        <a href="?sort_by=modified&sort_order={{ 'desc' if sort_by == 'modified' and sort_order == 'asc' else 'asc' }}">
+          Modified
+          {% if sort_by == 'modified' %}{{ '↑' if sort_order == 'asc' else '↓' }}{% endif %}
+        </a>
+      </th>
+      {% endif %}
     </tr>
   </thead>
   <tbody>
@@ -21,4 +41,5 @@
     {% endfor %}
   </tbody>
 </table>
+
 {% include 'footer.html' %}
